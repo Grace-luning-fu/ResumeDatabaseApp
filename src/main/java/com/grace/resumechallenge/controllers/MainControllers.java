@@ -42,6 +42,14 @@ public class MainControllers {
         return "result";
     }
 
+    @GetMapping("/showallresume")
+    public String showAllResumes(Model model) {
+
+        Iterable<Resume> allresume = resumeRepo.findAll();
+        model.addAttribute("resumes", allresume);
+        return "showallresume";
+
+    }
 
     //public Date calcualte calDateDiff()
 

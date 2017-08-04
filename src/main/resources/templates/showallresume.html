@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content = "text/html; charset=UTF-8"/>
+    <title>Resume Database</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Organization</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+
+    <tr th:each="resume : ${resumes}">
+        <td th:text="${resume.name}"></td>
+        <td th:text="${resume.email}"></td>
+        <td th:text="${resume.organization}"></td>
+        <td th:text="${{resume.startDate}}"></td>
+        <td th:text="${{resume.endDate}}"></td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>

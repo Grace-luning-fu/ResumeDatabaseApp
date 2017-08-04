@@ -16,7 +16,6 @@ public class Resume {
 
     private String email;
 
-    @NotNull
     private String organization;
 
 
