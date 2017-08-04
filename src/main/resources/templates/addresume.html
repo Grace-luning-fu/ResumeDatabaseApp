@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Submission</title>
+    <meta http-equiv="Content-Type" content = "text/html; charset=UTF-8" />
+</head>
+<body>
+<p>This is where you add your resume. Add your resume in the following form:</p>
+<h1>Resume Form</h1>
+<form action = "#" th:action="@{/addresume}" th:object="${newResume}" method="post">
+
+    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}">name has error</span>
+    <p>Enter your Name: <input type="text" th:field="*{name}" /></p>
+
+    <p>Enter your Email Address: <input type="text" th:field="*{email}" /></p>
+
+    <span th:if="${#fields.hasErrors('organization')}" th:error="*{organization}">organization cannot be blank</span>
+    <p>Enter your organization: <input type="text" th:field="*{organization}" /></p>
+
+    <span th:if="${#fields.hasErrors('startDate')}" th:error="*{startDate}">Start Date has error</span>
+    <p>Enter the date you started working: <input type="text" th:field="*{startDate}" /></p>
+
+    <span th:if="${#fields.hasErrors('endDate')}" th:error="*{endDate}">End Date has error</span>
+    <p>Enter the end date (keep it blank if you're still working there): <input type="text" th:field="*{endDate}" /></p>
+
+    <p><input type="submit" value="Add a Resume" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
+
