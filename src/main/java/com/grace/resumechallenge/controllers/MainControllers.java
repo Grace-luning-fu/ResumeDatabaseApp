@@ -9,7 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import javax.validation.Valid;
 
 @Controller
@@ -38,8 +39,29 @@ public class MainControllers {
         if(bindingResult.hasErrors()){
             return "addresume";
         }
+
+
+        long workdays;
+
+        if(resume.getEndDate()==null){
+            workdays= calDateFromToday(resume.getStartDate());
+        }
+        else{
+            workdays = caldatediff(resume.getStartDate(),resume.getEndDate());
+        }
+
+        resume.setWorkdays(workdays);
+
         resumeRepo.save(resume);
+
+        System.out.println("1\n" + calDateFromToday(resume.getStartDate()));
+
+        System.out.print("2\n"+workdays);
+
+        System.out.print("3\n"+resume.getWorkdays());
+
         return "result";
+
     }
 
     @GetMapping("/showallresume")
@@ -51,7 +73,24 @@ public class MainControllers {
 
     }
 
-    //public Date calcualte calDateDiff()
+    public long caldatediff(LocalDate date1, LocalDate date2)
+    {
+
+        long days = ChronoUnit.DAYS.between(date1, date2);
+        return days;
+
+    }
+
+    public long calDateFromToday(LocalDate date1)
+    {
+
+        LocalDate today = LocalDate.now();
+        long days = ChronoUnit.DAYS.between(date1,today);
+        return days;
+
+    }
+
+
 
 
 }

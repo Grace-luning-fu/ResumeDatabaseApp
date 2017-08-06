@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Resume {
@@ -20,11 +21,15 @@ public class Resume {
 
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy/mm/dd")
-    private Date startDate;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate startDate;
 
-    @DateTimeFormat(pattern = "yyyy/mm/dd")
-    private Date endDate;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate endDate;
+
+
+    private long workdays;
+
 
     public String getName() {
         return name;
@@ -51,19 +56,27 @@ public class Resume {
     }
 
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public long getWorkdays() {
+        return workdays;
+    }
+
+    public void setWorkdays(long workdays) {
+        this.workdays = workdays;
     }
 }
