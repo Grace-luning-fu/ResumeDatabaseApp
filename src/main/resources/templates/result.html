@@ -12,7 +12,7 @@
 <p th:text="'Your organization:'+ ${newResume.organization}" />
 <p th:text="'Start Date:'+ ${{newResume.startDate}}" />
 <p th:text="'End Date:'+ ${{newResume.endDate}}" />
-<p th:text="'You have been working for' + ${workdays} + 'days.'">
+<p th:text="'You have been working for ' + ${newResume.workdays} + ' days.'"></p>
 <a href="/addresume">Submit another resume</a>
 </body>
 </html>

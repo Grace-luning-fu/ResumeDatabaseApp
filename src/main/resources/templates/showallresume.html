@@ -13,6 +13,7 @@
         <th>Organization</th>
         <th>Start Date</th>
         <th>End Date</th>
+        <th>Worked Days</th>
     </tr>
 
     <tr th:each="resume : ${resumes}">
@@ -21,6 +22,8 @@
         <td th:text="${resume.organization}"></td>
         <td th:text="${{resume.startDate}}"></td>
         <td th:text="${{resume.endDate}}"></td>
+        <td th:text="${{resume.workdays}}"></td>
+
 
     </tr>
 
