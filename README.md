@@ -10,7 +10,10 @@ This Web App allows user to:
 4. Display a list of all resumes in the database (also display calculated employed days)
 
 
-*Needs to work on @Past validate "LocalDate" date type(since Hibernate does not support LocalDate type)
+*Future work:
+@Past validate "LocalDate" date type(since Hibernate does not support LocalDate type).
+But basic format validation for LocalDate startDate and endDate has been done.
+Next, pretty up the HTML
 
 reference: 
 Display dates in the validated format in HTML using thymeleaf:
