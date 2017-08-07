@@ -7,12 +7,15 @@
 <body>
 <h1>Result</h1>
 <p>You did successfully add your resume in our database</p>
+<p th:text="'UUID:'+ ${newResume.uuid}"/>
 <p th:text="'Your name:'+ ${newResume.name}"/>
 <p th:text="'Your email:'+ ${newResume.email}" />
 <p th:text="'Your organization:'+ ${newResume.organization}" />
-<p th:text="'Start Date:'+ ${{newResume.startDate}}" />
-<p th:text="'End Date:'+ ${{newResume.endDate}}" />
-<p th:text="'You have been working for ' + ${newResume.workdays} + ' days.'"></p>
-<a href="/addresume">Submit another resume</a>
+<!--Use Double-bracket syntax for dates, so that date type can be converted to string. reference in README.md-->
+<p th:text="'Start Date(yyyy/mm/dd):'+ ${{newResume.startDate}}" />
+<p th:text="'End Date(yyyy/mm/dd):'+ ${{newResume.endDate}}" />
+<p th:text="'Your employed days with this organization is ' + ${newResume.workdays} + ' days.'"></p>
+<a href="/addresume">Submit another resume<br /></a>
+<a href="/showallresume">List all the resumes in the database</a>
 </body>
 </html>

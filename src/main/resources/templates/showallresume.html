@@ -8,18 +8,21 @@
 
 <table>
     <tr>
+        <th>UUID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Organization</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Worked Days</th>
+        <th>StartDate</th>
+        <th>EndDate</th>
+        <th>EmployedDays</th>
     </tr>
 
     <tr th:each="resume : ${resumes}">
+        <td th:text="${resume.uuid}"></td>
         <td th:text="${resume.name}"></td>
         <td th:text="${resume.email}"></td>
         <td th:text="${resume.organization}"></td>
+        <!-- Again, use double-brackets to convert date type into string-->
         <td th:text="${{resume.startDate}}"></td>
         <td th:text="${{resume.endDate}}"></td>
         <td th:text="${{resume.workdays}}"></td>

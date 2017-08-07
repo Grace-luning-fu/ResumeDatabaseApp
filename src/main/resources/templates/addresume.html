@@ -9,18 +9,18 @@
 <h1>Resume Form</h1>
 <form action = "#" th:action="@{/addresume}" th:object="${newResume}" method="post">
 
-    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}">name has error</span>
+    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name is required</span>
     <p>Enter your Name: <input type="text" th:field="*{name}" /></p>
 
+    <span th:if="${#fields.hasErrors('email')}" th:error="*{email}">Email has error</span>
     <p>Enter your Email Address: <input type="text" th:field="*{email}" /></p>
 
-    <span th:if="${#fields.hasErrors('organization')}" th:error="*{organization}">organization cannot be blank</span>
     <p>Enter your organization: <input type="text" th:field="*{organization}" /></p>
 
-    <span th:if="${#fields.hasErrors('startDate')}" th:error="*{startDate}">Start Date has error</span>
+    <span th:if="${#fields.hasErrors('startDate')}" th:error="*{startDate}">Start Date is mandatory and has to be in the desired format</span>
     <p>Enter the start date (yyyy/mm/dd): <input type="text" th:field="*{startDate}" /></p>
 
-    <span th:if="${#fields.hasErrors('endDate')}" th:error="*{endDate}">End Date has error</span>
+    <span th:if="${#fields.hasErrors('endDate')}" th:error="*{endDate}">End Date has to be in the desired format</span>
     <p>Enter the end date (yyyy/mm/dd): Leave it blank if you're still working <input type="text" th:field="*{endDate}" /></p>
 
     <p><input type="submit" value="Add the Resume" /> <input type="reset" value="Reset" /></p>
